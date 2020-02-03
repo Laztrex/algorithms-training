@@ -1,0 +1,4 @@
+
+ru = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+
+eng = 'abcdefghijklmnopqrstuvwxyz'
