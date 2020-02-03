@@ -17,3 +17,20 @@
 # 1
 # 0
 # 1
+
+import sys
+
+my_iter = sys.stdin.readline().strip()
+
+count_one, max_count = 0, 0
+
+for _ in range(int(my_iter)):
+    elem = sys.stdin.readline().strip()
+    if elem == '1':
+        count_one += 1
+    else:
+        if max_count < count_one:
+            max_count = count_one
+        count_one = 0
+
+print(max_count if max_count > count_one else count_one)
