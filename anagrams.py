@@ -21,14 +21,15 @@ import sys
 
 
 def anagram(word_1, word_2):
-    for letter in word_2:
-        if letter in word_1 and len(word_1) == len(word_2):
+    for letter in word_1:
+        if letter in word_2:
+            word_2.remove(letter)
             continue
         else:
             return 0
     else:
-        return 1
+        return 1 if len(word_2) == 0 else 0
 
 
-print(anagram(sys.stdin.readline().strip().lower(), sys.stdin.readline().strip().lower()))
+print(anagram(sys.stdin.readline().strip(), list(sys.stdin.readline().strip())))
 
