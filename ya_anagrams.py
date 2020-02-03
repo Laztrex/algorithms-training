@@ -16,7 +16,7 @@
 # Ввод	Вывод
 # zprl    0
 # zprc
-import alphabet_settings
+import ya_alphabet_settings
 
 import sys
 
@@ -58,9 +58,9 @@ class AnagramSolution:
 
     def run(self):
         if self.alphabet == 'ru':
-            self.alphabet = alphabet_settings.ru
+            self.alphabet = ya_alphabet_settings.ru
         else:
-            self.alphabet = alphabet_settings.eng
+            self.alphabet = ya_alphabet_settings.eng
         self.count_one = [0] * len(self.alphabet)
         self.count_two = [0] * len(self.alphabet)
 
