@@ -16,7 +16,7 @@
 # Ввод	Вывод
 # zprl    0
 # zprc
-import ya_alphabet_settings
+from settings import _alphabet_settings
 
 import sys
 
@@ -49,7 +49,7 @@ import sys
 
 class AnagramSolution:
 
-    def __init__(self, list_1, list_2, alphabet='ru'):
+    def __init__(self, list_1, list_2, alphabet='en'):
         self.sequence_one = list_1
         self.sequence_two = list_2
         self.alphabet = alphabet
@@ -58,9 +58,9 @@ class AnagramSolution:
 
     def run(self):
         if self.alphabet == 'ru':
-            self.alphabet = ya_alphabet_settings.ru
+            self.alphabet = _alphabet_settings.ru
         else:
-            self.alphabet = ya_alphabet_settings.eng
+            self.alphabet = _alphabet_settings.eng
         self.count_one = [0] * len(self.alphabet)
         self.count_two = [0] * len(self.alphabet)
 
@@ -68,12 +68,12 @@ class AnagramSolution:
 
     def _computation_unicode(self):
         for i in range(len(self.sequence_one)):
-            position = ord(self.sequence_one[i]) - ord('a')  # возвращает позицию юникод-символа. известно, что у нас
-                                                             # en alphabet
+            position = ord(self.sequence_one[i]) - ord(self.alphabet[0])  # возвращает позицию юникод-символа.
+                                                                          # известно, что у нас en alphabet
             self.count_one[position] = self.count_one[position] + 1
 
         for i in range(len(self.sequence_two)):
-            position = ord(self.sequence_two[i]) - ord('a')  # ord('a')  # 97
+            position = ord(self.sequence_two[i]) - ord(self.alphabet[0])  # ord('a')  # 97
             self.count_two[position] = self.count_two[position] + 1
 
         return self._comparison_positions()
@@ -81,7 +81,7 @@ class AnagramSolution:
     def _comparison_positions(self):
         start = 0
         flag = 1
-        while start < 26 and flag:
+        while start < len(self.alphabet) and flag:
             if self.count_one[start] == self.count_two[start]:
                 start = start + 1
             else:
