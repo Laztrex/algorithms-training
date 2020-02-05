@@ -23,4 +23,59 @@
 # 4 8 20 65 86
 # 7 1 4 16 42 58 61 69
 # 1 84
+import sys
 
+
+def sorted_return(my_list):
+    new_list = list(my_list)
+    merge(new_list, my_list, 0, len(my_list))
+
+
+def merge(massive, result, start, end):
+    if end - start < 2:
+        return
+    if end - start == 2:
+        if result[start] > result[start + 1]:
+            result[start], result[start + 1] = result[start + 1], result[start]
+        return
+
+    middle = (start + end) // 2
+    merge(result, massive, start, middle)
+    merge(result, massive, middle, end)
+
+    i = start
+    j = middle
+    idx = start
+    while idx < end:
+        if j >= end or (i < middle and massive[i] < massive[j]):
+            result[idx] = massive[i]
+            i += 1
+        else:
+            result[idx] = massive[j]
+            j += 1
+        idx += 1
+
+
+# int_list = []
+# t = [0] * 101
+# n = int(sys.stdin.readline().strip())
+# for i in range(int(n)):
+#     s = sys.stdin.readline().strip()
+#     try:
+#         num = int(s[:s.find(' ')])
+#     except ValueError:
+#         continue
+#     for index, value in enumerate(s.split(' ')):
+#         if index == 0:
+#             continue
+#         elif index == num + 1:
+#             break
+#         try:
+#             t[int(value)] += 1
+#         except ValueError:
+#             pass
+#     del s
+#
+# for i in range(101):
+#     if t[i]:
+#         print(' '.join([str(i)] * t[i]), end=' ')
