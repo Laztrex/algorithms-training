@@ -26,3 +26,56 @@
 #       (())()
 #       ()(())
 #       ()()()
+import sys
+
+
+def gen(n, counter_open=0, counter_close=0, string=''):
+
+    if counter_open + counter_close == 2 * n:
+        print(string)
+    if counter_open < n:
+        gen(n, counter_open=counter_open+1, counter_close=counter_close, string=string+'(')
+    if counter_open > counter_close:
+        gen(n, counter_open=counter_open, counter_close=counter_close+1, string=string+')')
+
+
+gen(int(sys.stdin.readline()))
+# def next_scoba(string):
+#     count_open = 0
+#     count_close = 0
+#     for i in range(len(string)):
+#         if string[i] == '(':
+#             count_open += 1
+#             if count_close > count_open:
+#                 breakpoint()
+#         else:
+#             count_close += 1
+#
+#     string = string[0: len(string) - count_open - count_close]
+#     if string == '':
+#         return "No Solution"
+#     else:
+#         string = string + ')'
+#         for j in range(count_open):
+#             string = string + '('
+#         for j in range(count_close):
+#             string = string + ')'
+#         return string
+#
+#
+# def order(n):
+#     string = ''
+#     for j in range(n):
+#         string = string + '('
+#     for j in range(n):
+#         string = string + ')'
+#
+#     print(string)
+#     while next_scoba(string) != 'No Solution':
+#         print(next_scoba(string))
+#     return
+#
+#
+# order(5)
+
+
