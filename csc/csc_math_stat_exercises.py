@@ -1,4 +1,4 @@
-# Сборник небольших задачек по курсу Математическая статистика от CSC на Stepik.org.
+# Сборник задач по курсу Математическая статистика от CSC на Stepik.org.
 # =============
 # 1.4. Задача:
 # =============
@@ -9,8 +9,10 @@
 #
 # Sample Output:
 # -0.77, 0.03, 4.32
+import os
+import sys
 
-with open('dataset_26210_4.txt', mode='r', encoding='utf-8') as sample_file:
+with open(os.path.normpath(f'{sys.path[1]}/files/dataset_26210_4.txt'), mode='r', encoding='utf-8') as sample_file:
     sample_list = [float(string) for string in sample_file.readline().strip().split(',')]
     for i, j in enumerate(sorted(sample_list)):
         if i == 0 or i == 2 or i == 6:
