@@ -2,5 +2,5 @@
 ___
 
 ###### _sources_
-- csc - Алгоритмы: теория и практика. [stepik.org](https://stepik.org/course/217/syllabus)
-- ya_context - сборник задач Яндекс.Интервью
+- [csc](https://github.com/Laztrex/AlgorithmsTraining/tree/master/csc) - Алгоритмы: теория и практика. [stepik.org](https://stepik.org/course/217/syllabus)
+- [ya_context](https://github.com/Laztrex/AlgorithmsTraining/tree/master/ya_context) - сборник задач Яндекс.Интервью
