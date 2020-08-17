@@ -34,9 +34,9 @@ def gen(n, counter_open=0, counter_close=0, string=''):
     if counter_open + counter_close == 2 * n:
         print(string)
     if counter_open < n:
-        gen(n, counter_open=counter_open+1, counter_close=counter_close, string=string+'(')
+        gen(n, counter_open=counter_open + 1, counter_close=counter_close, string=string+'(')
     if counter_open > counter_close:
-        gen(n, counter_open=counter_open, counter_close=counter_close+1, string=string+')')
+        gen(n, counter_open=counter_open, counter_close=counter_close + 1, string=string+')')
 
 
 gen(int(sys.stdin.readline()))

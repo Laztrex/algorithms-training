@@ -32,33 +32,14 @@ import sys
 
 my_iter = sys.stdin.readline().strip()
 
-foo = 0
+temp = 0
 result = []
 for _ in range(int(my_iter)):
     elem = sys.stdin.readline().strip()
-    if elem != foo:
+    if elem != temp:
         result.append(elem)
-    foo = elem
+    temp = elem
 
 for num in result:
     print(num)
 
-
-# def del_dub(data):
-#     foo = []
-#     for num in data:
-#         start = data.count(num)
-#         if start == 1:
-#             yield num
-#         elif num not in foo:
-#             yield num
-#             foo.append(num)
-#         else:
-#             continue
-#
-#
-# with open('duplicate.txt', mode='r', encoding='utf8') as file:
-#     my_list = file.read().split()
-#     with open('out.txt', mode='a', encoding='utf8') as out:
-#         for i in del_dub(my_list[1:]):
-#             out.write(i + '\n')

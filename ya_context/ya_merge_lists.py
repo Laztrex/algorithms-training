@@ -56,13 +56,13 @@ def merge(massive, result, start, end):
         idx += 1
 
 
-n = sys.stdin.readline().strip()
-a = []
-for _ in range(int(n)):
-    a += [int(i) for i in sys.stdin.readline().split()][1:]
-sorted_return(a)
-for i in a:
-    print(i, end=' ')
+input_numbers = sys.stdin.readline().strip()
+total_list = []
+for _ in range(int(input_numbers)):
+    total_list += [int(str_num) for str_num in sys.stdin.readline().split()][1:]
+sorted_return(total_list)
+for number in total_list:
+    print(number, end=' ')
 
 # int_list = []
 # t = [0] * 101

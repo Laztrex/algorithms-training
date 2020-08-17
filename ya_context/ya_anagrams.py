@@ -35,60 +35,57 @@ import sys
 # print(anagram(sys.stdin.readline().strip(), list(sys.stdin.readline().strip())))
 
 
-# s1 = sys.stdin.readline().strip()
-# s2 = sys.stdin.readline().strip()
+s1 = sys.stdin.readline().strip()
+s2 = sys.stdin.readline().strip()
+
+list_one = list(s1)
+list_one.sort()
+list_second = list(s2)
+list_second.sort()
+
+print(1 if list_one == list_second else 0)
+
+# class AnagramSolution:
 #
-# l1 = list(s1)
-# l1.sort()
-# print(l1.sort())
-# l2 = list(s2)
-# l2.sort()
-# print(l2.sort())
+#     def __init__(self, list_1, list_2, alphabet='en'):
+#         self.sequence_one = list_1
+#         self.sequence_two = list_2
+#         self.alphabet = alphabet
+#         self.count_one = None
+#         self.count_two = None
 #
-# print(1 if l1 == l2 else 0)
-
-class AnagramSolution:
-
-    def __init__(self, list_1, list_2, alphabet='en'):
-        self.sequence_one = list_1
-        self.sequence_two = list_2
-        self.alphabet = alphabet
-        self.count_one = None
-        self.count_two = None
-
-    def run(self):
-        if self.alphabet == 'ru':
-            self.alphabet = _alphabet_settings.ru
-        else:
-            self.alphabet = _alphabet_settings.eng
-        self.count_one = [0] * len(self.alphabet)
-        self.count_two = [0] * len(self.alphabet)
-
-        return self._computation_unicode()
-
-    def _computation_unicode(self):
-        for i in range(len(self.sequence_one)):
-            position = ord(self.sequence_one[i]) - ord(self.alphabet[0])  # возвращает позицию юникод-символа.
-                                                                          # известно, что у нас en alphabet
-            self.count_one[position] = self.count_one[position] + 1
-
-        for i in range(len(self.sequence_two)):
-            position = ord(self.sequence_two[i]) - ord(self.alphabet[0])  # ord('a')  # 97
-            self.count_two[position] = self.count_two[position] + 1
-
-        return self._comparison_positions()
-
-    def _comparison_positions(self):
-        start = 0
-        flag = 1
-        while start < len(self.alphabet) and flag:
-            if self.count_one[start] == self.count_two[start]:
-                start = start + 1
-            else:
-                flag = 0
-        return flag
-
-
-if __name__ == '__main__':
-    anagram = AnagramSolution(sys.stdin.readline().strip(), sys.stdin.readline().strip())
-    print(anagram.run())
+#     def run(self):
+#         if self.alphabet == 'ru':
+#             self.alphabet = _alphabet_settings.ru
+#         else:
+#             self.alphabet = _alphabet_settings.eng
+#         self.count_one = [0] * len(self.alphabet)
+#         self.count_two = [0] * len(self.alphabet)
+#
+#         return self._computation_unicode()
+#
+#     def _computation_unicode(self):
+#         for i in range(len(self.sequence_one)):
+#             position = ord(self.sequence_one[i]) - ord(self.alphabet[0])  # возвращает позицию юникод-символа.
+#             self.count_one[position] = self.count_one[position] + 1
+#
+#         for i in range(len(self.sequence_two)):
+#             position = ord(self.sequence_two[i]) - ord(self.alphabet[0])  # ord('a')  # 97
+#             self.count_two[position] = self.count_two[position] + 1
+#
+#         return self._comparison_positions()
+#
+#     def _comparison_positions(self):
+#         start = 0
+#         flag = 1
+#         while start < len(self.alphabet) and flag:
+#             if self.count_one[start] == self.count_two[start]:
+#                 start = start + 1
+#             else:
+#                 flag = 0
+#         return flag
+#
+#
+# if __name__ == '__main__':
+#     anagram = AnagramSolution(sys.stdin.readline().strip(), sys.stdin.readline().strip())
+#     print(anagram.run())

@@ -1,8 +1,7 @@
+from collections import defaultdict
 from sympy import limit, factorial, log, sqrt
 from sympy.core.numbers import Infinity
 from sympy.abc import *
-import csv
-from collections import defaultdict
 
 
 def lapitale(my_func1, my_func2):
